@@ -63,13 +63,35 @@ const images = [
         description: 'Lighthouse Coast Sea',
     },
 ]
-<li class="gallery-item">
-  <a class="gallery-link" href="large-image.jpg">
-    <img
-      class="gallery-image"
-      src="small-image.jpg"
-      data-source="large-image.jpg"
-      alt="Image description"
-    />
-  </a>
-</li>
+
+const gallery = document.querySelector('.gallery');
+gallery.insertAdjacentHTML(
+    'afterbegin',
+    images
+        .map(
+            (x, index) =>
+                `<li class="gallery-item" >
+                    <a class="gallery-link" href="large-image.jpg"> 
+                    <img
+                        tabindex="${index}" 
+                        src="${x.preview}" 
+                        data-source="large-image.jpg"
+                        alt="${x.description}" 
+                        focus-atribut${index}
+                    />
+                </li>`
+        )
+        .join('')
+)    
+    
+    
+//     < li class="gallery-item" >
+//   <a class="gallery-link" href="large-image.jpg">
+//     <img
+//       class="gallery-image"
+//       src="small-image.jpg"
+//       data-source="large-image.jpg"
+//       alt="Image description"
+//     />
+//   </a>
+// </>
