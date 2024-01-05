@@ -64,27 +64,27 @@ const images = [
     },
 ]
 
-const gallery = document.querySelector('.gallery');
+const gallery = document.querySelector('.gallery')
 gallery.insertAdjacentHTML(
     'afterbegin',
     images
         .map(
             (x, index) =>
                 `<li class="gallery-item" >
-                    <a class="gallery-link" href="large-image.jpg"> 
+                    <a class="gallery-link" href="${x.original}"> 
                     <img
                         tabindex="${index}" 
                         src="${x.preview}" 
-                        data-source="large-image.jpg"
+                        data-source="${x.original}"
                         alt="${x.description}" 
                         focus-atribut${index}
+                        class="gallery-image"
                     />
                 </li>`
         )
         .join('')
-)    
-    
-    
+)
+
 //     < li class="gallery-item" >
 //   <a class="gallery-link" href="large-image.jpg">
 //     <img
