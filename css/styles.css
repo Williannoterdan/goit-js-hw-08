@@ -28,7 +28,6 @@ body {
 .gallery {
   flex-direction: row;
   list-style: none;
-  display: flex;
   flex-wrap: wrap;
   gap: 24px;
   padding-inline-start: 0px;
@@ -37,7 +36,9 @@ body {
 .gallery-item {
   display: contents;
 }
-
+.gallery-link{
+  text-decoration: none;
+}
 .gallery-image {
   width: calc((100% - 48px) / 3);
   height: auto;

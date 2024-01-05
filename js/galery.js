@@ -70,8 +70,8 @@ gallery.insertAdjacentHTML(
     images
         .map(
             (x, index) =>
-                `<li class="gallery-item" >
-                    <a class="gallery-link" href="${x.original}"> 
+                `<li class="gallery-item" onclick="return false">
+                    <a class="gallery-link" href="${x.original}" > 
                     <img
                         tabindex="${index}" 
                         src="${x.preview}" 
@@ -80,10 +80,25 @@ gallery.insertAdjacentHTML(
                         focus-atribut${index}
                         class="gallery-image"
                     />
+                     </a>
                 </li>`
         )
         .join('')
 )
+
+const galleryConteiner = document.querySelector('.gallery')
+galleryConteiner.addEventListener('click', (event) => {
+    const caca = event.target.getAttribute('data-source')
+    console.log(caca.src)
+
+    basicLightbox
+        .create(
+            `
+		<img width="1400" height="900" src="${caca}">
+	`
+        )
+        .show()
+})
 
 //     < li class="gallery-item" >
 //   <a class="gallery-link" href="large-image.jpg">
