@@ -88,16 +88,19 @@ gallery.insertAdjacentHTML(
 
 const galleryConteiner = document.querySelector('.gallery')
 galleryConteiner.addEventListener('click', (event) => {
-    const caca = event.target.getAttribute('data-source')
-    console.log(caca.src)
+    const bigImage = event.target.getAttribute('data-source')
+    console.log(bigImage.src)
 
     basicLightbox
         .create(
             `
-		<img width="1400" height="900" src="${caca}">
+		<img width="1400" height="900" src="${bigImage}">
 	`
         )
         .show()
+    document.addEventListener('keydownEscape', (event) => {
+        console.log(event.key)
+    })
 })
 
 //     < li class="gallery-item" >
