@@ -91,15 +91,15 @@ galleryConteiner.addEventListener('click', (event) => {
     const bigImage = event.target.getAttribute('data-source')
     console.log(bigImage.src)
 
-    basicLightbox
-        .create(
-            `
+    const instance = basicLightbox.create(
+        `
 		<img width="1400" height="900" src="${bigImage}">
 	`
-        )
-        .show()
-    document.addEventListener('keydownEscape', (event) => {
+    )
+    instance.show()
+    galleryConteiner.addEventListener('keydown', (event) => {
         console.log(event.key)
+        if (event.key === 'Escape') instance.close()
     })
 })
 
