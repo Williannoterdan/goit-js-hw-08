@@ -39,28 +39,22 @@ body {
 .gallery-link{
   text-decoration: none;
 }
+
+
 .gallery-image {
-  width: calc((100% - 48px) / 3);
-  height: auto;
+    width: calc((100% - 48px) / 3);
 
 
-  transition-duration: 2s;
-}
-
-.task2-ImgSt2 {
-  display: block;
-  width: 85%;
   max-width: 900px;
 
   margin: auto;
-  padding: 8px;
-  transition-duration: 2s;
+
+  transition-duration: 0.4s;
 }
 
-.task2-ImgSt1:hover {
-  cursor: pointer;
-  border-radius: 30%;
-  border: 8px solid var(--color-buton-positiv-hover);
+.gallery-image:hover {
+  cursor: url(/bxs_hand-down.svg) , pointer ; 
+  border: 2px solid var(--color-txt-one);
 }
 
 .task2-div {
@@ -76,39 +70,3 @@ body {
   background-color: rgba(0, 0, 0, 1);
 }
 
-.buton-task-two-negativ {
-  position: absolute;
-  top: 2%;
-  left: 88%;
-  border-radius: 50%;
-  border-color: var(--color-buton-negativ);
-  background-color: var(--color-buton-negativ);
-  color: var(--color-buton-txt);
-}
-
-.buton-task-two-negativ:hover,
-.buton-task-two-negativ:focus {
-  border-color: var(--color-buton-negativ-hover);
-  background-color: var(--color-buton-negativ-hover);
-}
-
-.modal-img-text {
-  color: var(--color-buton-txt);
-
-  top: 70%;
-  text-align: center;
-}
-
-.task2-div-two {
-  width: 50%;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  margin: auto;
-}
-
-.buton-direktion:focus,
-.buton-direktion:hover {
-  border-color: var(--color-buton-positiv-hover);
-  background-color: var(--color-buton-positiv-hover);
-}
