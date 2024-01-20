@@ -26,35 +26,32 @@ body {
 }
 
 .gallery {
-  flex-direction: row;
   list-style: none;
+  padding: 0px;
+  justify-content: center;
+  display: flex;
   flex-wrap: wrap;
-  gap: 24px;
-  padding-inline-start: 0px;
-}
+  width: 100%;
 
+}
 .gallery-item {
-  display: contents;
+  width: calc((100% - 36px) / 3);
+  display: inline;
 }
 .gallery-link{
   text-decoration: none;
 }
-
-
 .gallery-image {
-    width: calc((100% - 55px) / 3);
-  height: 250px;
-
-  max-width: 900px;
-
-  margin: auto;
-
-  transition-duration: 0.4s;
+  width: 98%;
+  padding: 2%;
+  transition-duration: 2s;
+  height: 32vh;
 }
 
 .gallery-image:hover {
   cursor: url(/bxs_hand-down.svg) , pointer ; 
-  border: 3px solid var(--color-txt-one);
+  background-color: var(--color-txt-one);
+  width: 96%;
 }
 
 .task2-div {
