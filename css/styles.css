@@ -49,7 +49,6 @@ body {
 }
 
 .gallery-image:hover {
-  cursor: url(/bxs_hand-down.svg) , pointer ; 
   background-color: var(--color-txt-one);
   width: 96%;
 }

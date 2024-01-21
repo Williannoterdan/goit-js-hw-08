@@ -63,43 +63,42 @@ const images = [
         description: 'Lighthouse Coast Sea',
     },
 ]
-
 const gallery = document.querySelector('.gallery')
-gallery.insertAdjacentHTML(
-    'afterbegin',
-    images
-        .map(
-            (x, index) =>
-                `<li class="gallery-item" onclick="return false">
+let imaggeHtml = images.map(
+        (x) =>
+            `<li class="gallery-item" onclick="return false">
                     <a class="gallery-link" href="${x.original}" > 
                     <img
-                        tabindex="${index}" 
+
                         src="${x.preview}" 
-                        data-source="${x.original}"
                         alt="${x.description}" 
-                        focus-atribut${index}
                         class="gallery-image"
                     />
                      </a>
                 </li>`
-        )
-        .join('')
-)
+    )
+    .join('');
 
-const galleryConteiner = document.querySelector('.gallery')
+gallery.insertAdjacentHTML('afterbegin', imaggeHtml);
+
+
+
+const galleryConteiner = document.querySelector('.gallery');
 galleryConteiner.addEventListener('click', (event) => {
-    const bigImage = event.target.getAttribute('data-source')
-    console.log(bigImage.src)
+    const largeImmage = event.target.getAttribute('data-source')
+
 
     const instance = basicLightbox.create(
         `
-		<img width="1400" height="900" src="${bigImage}">
+		<img width="1400" height="900" src="${largeImmage}">
 	`
     )
     instance.show()
-    galleryConteiner.addEventListener('keydown', (event) => {
-        console.log(event.key)
-        if (event.key === 'Escape') instance.close()
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            document.removeEventListener()
+            instance.close()
+        }
     })
 })
 
