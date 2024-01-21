@@ -65,21 +65,11 @@ const images = [
     },
 ]
 const gallery = document.querySelector('.gallery')
-let imaggeHtml = images
-    .map(
-        (image) =>
-            `<li class="gallery-item" onclick="return false">
-                    <a class="gallery-link" href="${image.original}" > 
-                    <img
-                        data-source="${image.original}"
-                        src="${image.preview}" 
-                        alt="${image.description}" 
-                        class="gallery-image"
-                    />
-                     </a>
-                </li>`
-    )
-    .join('');
+
+
+
+
+let imaggeHtml = 
 gallery.getAttribute
 gallery.insertAdjacentHTML('afterbegin', imaggeHtml);
 
