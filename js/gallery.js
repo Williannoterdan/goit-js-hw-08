@@ -1,3 +1,4 @@
+
 const images = [
     {
         preview:
@@ -64,51 +65,66 @@ const images = [
     },
 ]
 const gallery = document.querySelector('.gallery')
-let imaggeHtml = images.map(
-        (x) =>
+let imaggeHtml = images
+    .map(
+        (image) =>
             `<li class="gallery-item" onclick="return false">
-                    <a class="gallery-link" href="${x.original}" > 
+                    <a class="gallery-link" href="${image.original}" > 
                     <img
-
-                        src="${x.preview}" 
-                        alt="${x.description}" 
+                        data-source="${image.original}"
+                        src="${image.preview}" 
+                        alt="${image.description}" 
                         class="gallery-image"
                     />
                      </a>
                 </li>`
     )
     .join('');
-
+gallery.getAttribute
 gallery.insertAdjacentHTML('afterbegin', imaggeHtml);
 
+document.addEventListener("click", (event) => {
+    event.preventDefault();
 
-
-const galleryConteiner = document.querySelector('.gallery');
-galleryConteiner.addEventListener('click', (event) => {
-    const largeImmage = event.target.getAttribute('data-source')
-
-
-    const instance = basicLightbox.create(
-        `
-		<img width="1400" height="900" src="${largeImmage}">
-	`
-    )
-    instance.show()
+    console.log(event.target.nodeName)
+    if (event.target.nodeName !== 'IMG') {
+        return
+    }
+    console.log(event.target.getAttribute('data-source'))
+    basicLightbox
+        .create(
+            `
+		<img width="1400" height="900" src="${event.target.getAttribute(
+                'data-source'
+            )}">
+	        `
+        )
+        .show()
     document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape') {
-            document.removeEventListener()
-            instance.close()
-        }
-    })
+        console.log(event.key)
+        if (event.key === 'Escape'){instance.close()}
+            
+    }
+    )
 })
 
-//     < li class="gallery-item" >
-//   <a class="gallery-link" href="large-image.jpg">
-//     <img
-//       class="gallery-image"
-//       src="small-image.jpg"
-//       data-source="large-image.jpg"
-//       alt="Image description"
-//     />
-//   </a>
-// </>
+
+
+
+// // document.addEventListener('click', (event) => {
+// //     const largeImmage = event.target.getAttribute('data-source')
+
+
+//     const instance = basicLightbox.create(
+//         `
+// 		<img width="1400" height="900" src="${largeImmage}">
+// 	`
+//     )
+//     instance.show()
+//     document.addEventListener('keydown', (event) => {
+//         if (event.key === 'Escape') {
+//             document.removeEventListener()
+//             instance.close()
+//         }
+//     })
+// })
