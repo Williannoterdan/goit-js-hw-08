@@ -66,55 +66,46 @@ const images = [
 ]
 const gallery = document.querySelector('.gallery')
 
-
-
-
-let imaggeHtml = 
-gallery.getAttribute
+let imaggeHtml = images
+    .map(
+        (image) =>
+            `<li class="gallery-item" >
+                    <a class="gallery-link" href="${image.original}" > 
+                    <img
+                        data-source="${image.original}"
+                        src="${image.preview}" 
+                        alt="${image.description}" 
+                        class="gallery-image"
+                    />
+                     </a>
+                </li>`
+    )
+    .join('');
 gallery.insertAdjacentHTML('afterbegin', imaggeHtml);
 
 document.addEventListener("click", (event) => {
     event.preventDefault();
-
-    console.log(event.target.nodeName)
     if (event.target.nodeName !== 'IMG') {
         return
     }
-    console.log(event.target.getAttribute('data-source'))
-    basicLightbox
-        .create(
-            `
-		<img width="1400" height="900" src="${event.target.getAttribute(
-                'data-source'
-            )}">
+
+    var instance = basicLightbox.create(
+        `
+		<img width="1400" height="900" alt="${event.target.getAttribute('alt')}" src="${event.target.getAttribute('data-source')}">
 	        `
-        )
-        .show()
+    ).show();
     document.addEventListener('keydown', (event) => {
-        console.log(event.key)
-        if (event.key === 'Escape'){instance.close()}
-            
+        console.log(event.key);
+        if (event.key === 'Escape') {
+
+            instance.close()
+        
+        document.removeEventListener('keydown', document)
+        }
+
     }
     )
+
 })
 
 
-
-
-// // document.addEventListener('click', (event) => {
-// //     const largeImmage = event.target.getAttribute('data-source')
-
-
-//     const instance = basicLightbox.create(
-//         `
-// 		<img width="1400" height="900" src="${largeImmage}">
-// 	`
-//     )
-//     instance.show()
-//     document.addEventListener('keydown', (event) => {
-//         if (event.key === 'Escape') {
-//             document.removeEventListener()
-//             instance.close()
-//         }
-//     })
-// })
