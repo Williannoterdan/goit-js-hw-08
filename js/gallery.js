@@ -99,12 +99,3 @@ document.addEventListener('click', (event) => {
         )
         .show()
 })
-document.addEventListener('keydown', (event) => {
-    event.preventDefault()
-    console.log(event.key)
-    if (event.key == 'Escape') {
-        basicLightbox.close()
-
-        document.removeEventListener('keydown', document)
-    }
-})
