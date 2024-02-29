@@ -80,32 +80,31 @@ let imaggeHtml = images
                      </a>
                 </li>`
     )
-    .join('');
-gallery.insertAdjacentHTML('afterbegin', imaggeHtml);
+    .join('')
+gallery.insertAdjacentHTML('afterbegin', imaggeHtml)
 
-document.addEventListener("click", (event) => {
-    event.preventDefault();
+document.addEventListener('click', (event) => {
+    event.preventDefault()
     if (event.target.nodeName !== 'IMG') {
         return
     }
 
-    var instance = basicLightbox.create(
-        `
-		<img width="1400" height="900" alt="${event.target.getAttribute('alt')}" src="${event.target.getAttribute('data-source')}">
+    basicLightbox
+        .create(
+            `
+		<img width="1400" height="900" alt="${event.target.getAttribute(
+            'alt'
+        )}" src="${event.target.getAttribute('data-source')}">
 	        `
-    ).show();
-    document.addEventListener('keydown', (event) => {
-        console.log(event.key);
-        if (event.key === 'Escape') {
-
-            instance.close()
-        
-        document.removeEventListener('keydown', document)
-        }
-
-    }
-    )
-
+        )
+        .show()
 })
+document.addEventListener('keydown', (event) => {
+    event.preventDefault()
+    console.log(event.key)
+    if (event.key == 'Escape') {
+        basicLightbox.close()
 
-
+        document.removeEventListener('keydown', document)
+    }
+})
